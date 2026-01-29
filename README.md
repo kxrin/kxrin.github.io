@@ -4,7 +4,7 @@ A modern, responsive portfolio website showcasing my work in Natural Language Pr
 
 ## 🚀 Live Demo
 
-Visit: [karinozturk.github.io](https://karinozturk.github.io)
+Visit: [karinozturk.github.io](https://kxrin.github.io)
 
 ## ✨ Features
 
