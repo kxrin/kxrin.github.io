@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Karin Ozturk | NLP Researcher & Software Engineer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="neural-network" id="neural-net"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-brand">
+            <span class="brand-text">KO</span>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#research">Research</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-toggle" id="nav-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-text">
+                <p class="hero-subtitle">Hello, I'm</p>
+                <h1 class="hero-title">Karin Ozturk</h1>
+                <div class="typing-container">
+                    <span class="typing-text" id="typing"></span>
+                    <span class="cursor">|</span>
+                </div>
+                <p class="hero-description">
+                    Computer Science researcher specializing in <span class="highlight">Natural Language Processing</span>,
+                    <span class="highlight">Transformer Architectures</span>, and <span class="highlight">AI Safety</span>.
+                    Building trustworthy language technologies that detect misinformation and achieve deeper semantic understanding.
+                </p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View Projects</a>
+                    <a href="#contact" class="btn btn-secondary">Get in Touch</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">3.8+</span>
+                        <span class="stat-label">GPA</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">900+</span>
+                        <span class="stat-label">Students Taught</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">3</span>
+                        <span class="stat-label">Languages</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="code-window">
+                    <div class="window-header">
+                        <span class="dot red"></span>
+                        <span class="dot yellow"></span>
+                        <span class="dot green"></span>
+                        <span class="window-title">transformer.py</span>
+                    </div>
+                    <pre class="code-content"><code><span class="keyword">class</span> <span class="class-name">MultiHeadAttention</span>(nn.Module):
+    <span class="keyword">def</span> <span class="function">__init__</span>(self, d_model, n_heads):
+        <span class="keyword">super</span>().__init__()
+        self.attention = nn.Linear(d_model, d_model * <span class="number">3</span>)
+        self.n_heads = n_heads
+
+    <span class="keyword">def</span> <span class="function">forward</span>(self, x):
+        <span class="comment"># Compute Q, K, V projections</span>
+        qkv = self.attention(x)
+        q, k, v = qkv.chunk(<span class="number">3</span>, dim=-<span class="number">1</span>)
+
+        <span class="comment"># Scaled dot-product attention</span>
+        scores = torch.einsum(<span class="string">'bhqd,bhkd->bhqk'</span>, q, k)
+        attn = F.softmax(scores / math.sqrt(d_k), dim=-<span class="number">1</span>)
+        <span class="keyword">return</span> torch.einsum(<span class="string">'bhqk,bhvd->bhqd'</span>, attn, v)</code></pre>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <i class="fas fa-chevron-down"></i>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p class="lead">
+                        I'm a Computer Science student at the <strong>University of Maryland, College Park</strong>,
+                        pursuing my passion for understanding how machines can truly comprehend human language.
+                    </p>
+                    <p>
+                        My research interests lie at the intersection of <strong>symbolic AI and neural networks</strong>—developing
+                        hybrid architectures that combine the interpretability of classical methods with the power of deep learning.
+                        I'm particularly focused on building language systems that go beyond surface-level pattern matching to achieve
+                        genuine semantic understanding.
+                    </p>
+                    <p>
+                        Currently conducting research on <strong>post-quantum cryptography</strong> in the Gemstone Honors Program
+                        and have contributed to <strong>media bias detection</strong> at MBZUAI. My long-term goal is to pursue a PhD
+                        and build AI systems that can reliably detect misinformation and omission in text.
+                    </p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <i class="fas fa-graduation-cap"></i>
+                            <span>Dean's List (6 semesters)</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-award"></i>
+                            <span>Gemstone Honors Program</span>
+                        </div>
+                        <div class="highlight-item">
+                            <i class="fas fa-chalkboard-teacher"></i>
+                            <span>CS Teaching Assistant</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-education">
+                    <h3>Education</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>University of Maryland, College Park</h4>
+                                <p class="timeline-subtitle">B.S. Computer Science, Minor in Statistics</p>
+                                <p class="timeline-date">Aug 2022 – May 2026</p>
+                                <p class="timeline-detail">GPA: 3.805/4.00 | Departmental Honors Program</p>
+                            </div>
+                        </div>
+                        <div class="timeline-item">
+                            <div class="timeline-marker"></div>
+                            <div class="timeline-content">
+                                <h4>Repton School</h4>
+                                <p class="timeline-subtitle">IB Diploma, IGCSE Qualification</p>
+                                <p class="timeline-date">Dubai, UAE – April 2022</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section class="research" id="research">
+        <div class="container">
+            <h2 class="section-title">Research Experience</h2>
+            <div class="research-grid">
+                <div class="research-card featured">
+                    <div class="research-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="research-badge">Current</div>
+                    <h3>Media Bias Detection with Neural Networks</h3>
+                    <p class="research-venue">Mohamed bin Zayed University of AI (MBZUAI)</p>
+                    <p class="research-advisor">Advisor: Dr. Preslav Nakov</p>
+                    <p>
+                        Developed an end-to-end AI framework for classifying political bias in news articles.
+                        Fine-tuned BERT-based classifiers across policy domains, achieving <strong>61.94% accuracy</strong>
+                        on cross-outlet classification—a challenging distribution-shifted dataset.
+                    </p>
+                    <ul class="research-contributions">
+                        <li>Designed data pipelines processing 100K+ articles</li>
+                        <li>Implemented Domain Adversarial Neural Networks</li>
+                        <li>Explored multilingual extensions for generalization</li>
+                    </ul>
+                    <div class="research-tags">
+                        <span>NLP</span>
+                        <span>BERT</span>
+                        <span>Misinformation</span>
+                        <span>PyTorch</span>
+                    </div>
+                </div>
+                <div class="research-card">
+                    <div class="research-icon">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div class="research-badge">Ongoing</div>
+                    <h3>Post-Quantum Cryptographic Systems</h3>
+                    <p class="research-venue">Gemstone Honors Program, UMD</p>
+                    <p class="research-advisor">Advisor: Dr. Gorjan Alagic</p>
+                    <p>
+                        Investigating hybrid quantum-classical cryptographic systems with focus on lattice-based
+                        primitives (Kyber, ML-DSA) and forward-secure digital signatures.
+                    </p>
+                    <ul class="research-contributions">
+                        <li>Designing efficient signcryption mechanisms</li>
+                        <li>Adapting forward-secure constructions to lattice-based signatures</li>
+                    </ul>
+                    <div class="research-tags">
+                        <span>Cryptography</span>
+                        <span>Quantum Computing</span>
+                        <span>Security</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">A selection of my work in NLP, deep learning, and AI systems</p>
+
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="nlp">NLP</button>
+                <button class="filter-btn" data-filter="ml">Deep Learning</button>
+                <button class="filter-btn" data-filter="tools">Tools</button>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Project 1: GPT-2 from Scratch -->
+                <div class="project-card" data-category="nlp ml">
+                    <div class="project-image">
+                        <div class="project-visual transformer-viz">
+                            <div class="attention-pattern"></div>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>GPT-2 Small from Scratch</h3>
+                        <p>
+                            Built a complete 12-layer, 12-head decoder-only Transformer in PyTorch. Implemented
+                            LayerNorm, causal self-attention with einops, GELU MLPs, and verified against OpenAI's
+                            pretrained weights with exact logit matching.
+                        </p>
+                        <div class="project-tech">
+                            <span>PyTorch</span>
+                            <span>einops</span>
+                            <span>transformer_lens</span>
+                        </div>
+                        <div class="project-metrics">
+                            <span><i class="fas fa-layer-group"></i> 12 Layers</span>
+                            <span><i class="fas fa-brain"></i> 768 Dims</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2: Quizbowl QA -->
+                <div class="project-card" data-category="nlp ml">
+                    <div class="project-image">
+                        <div class="project-visual qa-viz">
+                            <div class="question-mark">?</div>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Neural Question Answering System</h3>
+                        <p>
+                            Deep Averaging Network for Quizbowl-style QA, mapping questions to dense representations
+                            for Wikipedia page prediction. Full pipeline with vocabulary construction, batching,
+                            and cross-entropy training on QANTA dataset.
+                        </p>
+                        <div class="project-tech">
+                            <span>PyTorch</span>
+                            <span>HuggingFace</span>
+                            <span>NumPy</span>
+                        </div>
+                        <div class="project-metrics">
+                            <span><i class="fas fa-database"></i> 1000+ Questions</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3: Misinformation Detector -->
+                <div class="project-card featured-project" data-category="nlp tools">
+                    <div class="project-image">
+                        <div class="project-visual misinfo-viz">
+                            <div class="truth-meter"></div>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Real-Time Misinformation Detection API</h3>
+                        <p>
+                            RESTful API for detecting misleading claims in text using fine-tuned RoBERTa with
+                            contrastive learning. Identifies factual inconsistencies, omissions, and misleading
+                            framing with explainable attention visualizations.
+                        </p>
+                        <div class="project-tech">
+                            <span>RoBERTa</span>
+                            <span>FastAPI</span>
+                            <span>Docker</span>
+                            <span>Redis</span>
+                        </div>
+                        <div class="project-metrics">
+                            <span><i class="fas fa-tachometer-alt"></i> 89.2% F1</span>
+                            <span><i class="fas fa-bolt"></i> 50ms Latency</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4: Semantic Search -->
+                <div class="project-card" data-category="nlp tools">
+                    <div class="project-image">
+                        <div class="project-visual search-viz">
+                            <div class="search-icon"><i class="fas fa-search"></i></div>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Multilingual Semantic Search Engine</h3>
+                        <p>
+                            Cross-lingual document retrieval system using sentence transformers and FAISS.
+                            Supports English, Turkish, and Russian with approximate nearest neighbor search
+                            over 1M+ document embeddings.
+                        </p>
+                        <div class="project-tech">
+                            <span>Sentence-BERT</span>
+                            <span>FAISS</span>
+                            <span>Flask</span>
+                        </div>
+                        <div class="project-metrics">
+                            <span><i class="fas fa-globe"></i> 3 Languages</span>
+                            <span><i class="fas fa-file-alt"></i> 1M+ Docs</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5: Text Summarization -->
+                <div class="project-card" data-category="nlp ml">
+                    <div class="project-image">
+                        <div class="project-visual summary-viz">
+                            <div class="compress-icon"><i class="fas fa-compress-alt"></i></div>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Abstractive Summarization with Factual Consistency</h3>
+                        <p>
+                            Fine-tuned BART model with factual consistency checking using NLI. Generates fluent
+                            summaries while verifying claims against source documents to prevent hallucination.
+                        </p>
+                        <div class="project-tech">
+                            <span>BART</span>
+                            <span>NLI</span>
+                            <span>Transformers</span>
+                        </div>
+                        <div class="project-metrics">
+                            <span><i class="fas fa-check-circle"></i> 94% Factual</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6: Sentiment Analysis Dashboard -->
+                <div class="project-card" data-category="tools ml">
+                    <div class="project-image">
+                        <div class="project-visual sentiment-viz">
+                            <div class="emotion-wheel"></div>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="#" class="project-link"><i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Multi-Aspect Sentiment Analysis Dashboard</h3>
+                        <p>
+                            Interactive dashboard for fine-grained sentiment analysis with aspect extraction.
+                            Visualizes sentiment polarity, intensity, and emotional dimensions using custom
+                            attention-based models.
+                        </p>
+                        <div class="project-tech">
+                            <span>React</span>
+                            <span>D3.js</span>
+                            <span>DistilBERT</span>
+                            <span>FastAPI</span>
+                        </div>
+                        <div class="project-metrics">
+                            <span><i class="fas fa-chart-line"></i> Real-time</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills" id="skills">
+        <div class="container">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <div class="skill-icon"><i class="fas fa-code"></i></div>
+                    <h3>Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag advanced">Python</span>
+                        <span class="skill-tag advanced">Java</span>
+                        <span class="skill-tag intermediate">C</span>
+                        <span class="skill-tag intermediate">C#</span>
+                        <span class="skill-tag intermediate">Rust</span>
+                        <span class="skill-tag intermediate">OCaml</span>
+                        <span class="skill-tag beginner">Assembly</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-icon"><i class="fas fa-brain"></i></div>
+                    <h3>ML & NLP</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag advanced">PyTorch</span>
+                        <span class="skill-tag advanced">Transformers</span>
+                        <span class="skill-tag advanced">HuggingFace</span>
+                        <span class="skill-tag intermediate">TensorFlow</span>
+                        <span class="skill-tag intermediate">NLTK</span>
+                        <span class="skill-tag intermediate">spaCy</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-icon"><i class="fas fa-chart-bar"></i></div>
+                    <h3>Data Science</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag advanced">Pandas</span>
+                        <span class="skill-tag advanced">NumPy</span>
+                        <span class="skill-tag intermediate">Scikit-learn</span>
+                        <span class="skill-tag intermediate">Matplotlib</span>
+                        <span class="skill-tag intermediate">Seaborn</span>
+                        <span class="skill-tag beginner">R</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <div class="skill-icon"><i class="fas fa-server"></i></div>
+                    <h3>Infrastructure</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag intermediate">Git/GitHub</span>
+                        <span class="skill-tag intermediate">Linux</span>
+                        <span class="skill-tag intermediate">Docker</span>
+                        <span class="skill-tag beginner">PostgreSQL</span>
+                        <span class="skill-tag beginner">Firebase</span>
+                    </div>
+                </div>
+            </div>
+            <div class="languages-section">
+                <h3><i class="fas fa-language"></i> Languages Spoken</h3>
+                <div class="language-bars">
+                    <div class="language-item">
+                        <span class="language-name">English</span>
+                        <div class="language-bar"><div class="language-progress" style="width: 100%"></div></div>
+                        <span class="language-level">Fluent</span>
+                    </div>
+                    <div class="language-item">
+                        <span class="language-name">Turkish</span>
+                        <div class="language-bar"><div class="language-progress" style="width: 100%"></div></div>
+                        <span class="language-level">Fluent</span>
+                    </div>
+                    <div class="language-item">
+                        <span class="language-name">Russian</span>
+                        <div class="language-bar"><div class="language-progress" style="width: 100%"></div></div>
+                        <span class="language-level">Fluent</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="contact-intro">
+                Interested in collaborating on NLP research or discussing opportunities? I'd love to hear from you.
+            </p>
+            <div class="contact-grid">
+                <a href="mailto:karin23@terpmail.umd.edu" class="contact-card">
+                    <i class="fas fa-envelope"></i>
+                    <h3>Email</h3>
+                    <p>karin23@terpmail.umd.edu</p>
+                </a>
+                <a href="https://github.com/karinozturk" class="contact-card" target="_blank">
+                    <i class="fab fa-github"></i>
+                    <h3>GitHub</h3>
+                    <p>github.com/karinozturk</p>
+                </a>
+                <a href="https://linkedin.com/in/karinozturk" class="contact-card" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    <h3>LinkedIn</h3>
+                    <p>linkedin.com/in/karinozturk</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Karin Ozturk. Built with curiosity and caffeine.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
